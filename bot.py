@@ -144,5 +144,5 @@ async def removerolebutton(interaction: discord.Interaction, emoji: str):
         await interaction.response.send_message("⚠️ Message non trouvé. Utilise `/initroles` si nécessaire.", ephemeral=True)
 
 
-bot.run("MTM1ODYxMTEwNDk3MjE0ODgxNg.Gan2H5.c2M8spjfwKaVZEp94BAODPjDKq_h3MwwJCmkV0")
+bot.run(os.getenv("DISCORD_TOKEN"))
 
