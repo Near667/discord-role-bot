@@ -26,8 +26,11 @@ def load_data():
 
 # Save role data to JSON file
 def save_data(data):
+    if not isinstance(data, dict):
+        data = {}
     with open(ROLES_FILE, "w") as f:
         json.dump(data, f, indent=4)
+
 
 # View that holds all role buttons
 class RoleButtonView(discord.ui.View):
