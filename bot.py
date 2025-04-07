@@ -115,7 +115,7 @@ async def send_role_buttons(interaction: discord.Interaction):
     guild_id = str(interaction.guild_id)
 
     if guild_id not in data or not data[guild_id]["roles"]:
-        await interaction.response.send_message("⚠️ No role buttons have been configured.")
+        await interaction.response.send_message("⚠️ No role buttons have been configured.", ephemeral=True)
         return
 
     embed = discord.Embed(title="Choose your role 🎭", color=discord.Color.blurple())
@@ -123,8 +123,9 @@ async def send_role_buttons(interaction: discord.Interaction):
         embed.add_field(name=label, value=f"<@&{role_id}>", inline=True)
 
     view = RoleButtonView(data[guild_id]["roles"], unique_roles=data[guild_id].get("unique", []))
-    await interaction.channel.send(embed=embed, view=view)
-    await interaction.response.send_message("✅ Sent the role selection message.", ephemeral=True)
+
+    # ✅ ENVOI DIRECT via l’interaction (1 seule réponse)
+    await interaction.response.send_message(embed=embed, view=view)
 
 
 bot.run(os.getenv("DISCORD_TOKEN"))
