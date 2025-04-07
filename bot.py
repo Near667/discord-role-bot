@@ -21,10 +21,14 @@ data = {
 
 
 def load_data():
-    global data
-    if os.path.exists(DATA_FILE):
-        with open(DATA_FILE, "r") as f:
-            data = json.load(f)
+    if not os.path.exists("roles.json") or os.path.getsize("roles.json") == 0:
+        with open("roles.json", "w") as f:
+            json.dump({}, f)
+
+    with open("roles.json", "r") as f:
+        data = json.load(f)
+    return data
+
 
 
 def save_data():
