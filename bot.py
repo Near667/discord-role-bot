@@ -1,7 +1,4 @@
 from keep_alive import keep_alive
-
-keep_alive()
-
 import discord
 from discord.ext import commands
 from discord import app_commands
@@ -131,6 +128,6 @@ async def send_role_buttons(interaction: discord.Interaction):
     # ✅ ENVOI DIRECT via l’interaction (1 seule réponse)
     await interaction.response.send_message(embed=embed, view=view)
 
-
+keep_alive()
 bot.run(os.getenv("DISCORD_TOKEN"))
 
