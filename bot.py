@@ -129,10 +129,5 @@ async def send_role_buttons(interaction: discord.Interaction):
     await interaction.response.send_message(embed=embed, view=view)
 
 keep_alive()
-token = os.getenv("DISCORD_TOKEN")
-
-if not token:
-    print("❌ DISCORD_TOKEN not found!")
-else:
-    bot.run(token)
+bot.run(os.getenv("DISCORD_TOKEN"))
 
