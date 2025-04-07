@@ -1,3 +1,7 @@
+from keep_alive import keep_alive
+
+keep_alive()
+
 import discord
 from discord.ext import commands
 from discord import app_commands
